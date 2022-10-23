@@ -48,9 +48,9 @@ public class GameManagerCS : MonoBehaviour
         // makes it harder for player to move once AQI is 400+
         if (AQI > 400)
         {
-            player.GetComponent<PlayerControllCS>().walkingSpeed = 6;
-            player.GetComponent<PlayerControllCS>().runningSpeed = 6f;
-            player.GetComponent<PlayerControllCS>().jumpSpeed = 5;
+            player.GetComponent<PlayerControllCS>().walkingSpeed = 6.5f;
+            player.GetComponent<PlayerControllCS>().runningSpeed = 8f;
+            player.GetComponent<PlayerControllCS>().jumpSpeed = 6;
         }
 
         else // otherwise back to normal
