@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class GaneManagerCS : MonoBehaviour
+public class GameManagerCS : MonoBehaviour
 {
     public TextMeshProUGUI AQI_text;
     public TextMeshProUGUI health_text;
@@ -12,6 +12,9 @@ public class GaneManagerCS : MonoBehaviour
     public float AQI_increase_per_minute;
     public float health;
     public float damage_constant;
+    public float AQI_decrease_on_item_pickup;
+
+    public int itemCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,7 @@ public class GaneManagerCS : MonoBehaviour
 
         //text displayed on the screen
         UpdateScreenText(AQI, health);
+        AQI_decrease_on_item_pickup = 30;
     }
 
     // Update is called once per frame
@@ -40,5 +44,12 @@ public class GaneManagerCS : MonoBehaviour
     {
         AQI_text.text = "AQI: " + _AQI;
         health_text.text = "Health: " + _health;
+        // Debug.Log(AQI);
+    }
+
+    public void itemPickedUp(){
+        itemCount++;
+
+        AQI -= AQI_decrease_on_item_pickup;
     }
 }
