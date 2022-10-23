@@ -9,18 +9,20 @@ public class GameManagerCS : MonoBehaviour
     public TextMeshProUGUI AQI_text;
     public TextMeshProUGUI health_text;
 
+    public GameObject player;
+
     public float AQI;
     public float AQI_increase_per_minute;
     public float health;
     public float damage_constant;
     public float AQI_decrease_on_item_pickup;
 
-    public int itemCount = 0;
+    public int keyCount = 0;
 
     // Start is called before the first frame update
     void Start()
-    {
-        AQI = 200f;
+    {       
+        AQI = 200;
         health = 1000;
 
         AQI_increase_per_minute = 200;
@@ -37,6 +39,21 @@ public class GameManagerCS : MonoBehaviour
         AQI += (AQI_increase_per_minute / 60f) * Time.deltaTime;
         health -= (damage_constant / 60f) * Time.deltaTime * AQI;
 
+        // makes it harder for player to move once AQI is 400+
+        if (AQI > 400)
+        {
+            player.GetComponent<PlayerControllCS>().walkingSpeed = 4;
+            player.GetComponent<PlayerControllCS>().runningSpeed = 4f;
+            player.GetComponent<PlayerControllCS>().jumpSpeed = 5;
+        }
+
+        else // otherwise back to normal
+        {
+            player.GetComponent<PlayerControllCS>().walkingSpeed = 7.5f;
+            player.GetComponent<PlayerControllCS>().runningSpeed = 11.5f;
+            player.GetComponent<PlayerControllCS>().jumpSpeed = 8;
+        }
+        
         //update text displayed on the screen
         UpdateScreenText(AQI, health);
     }
@@ -48,8 +65,8 @@ public class GameManagerCS : MonoBehaviour
     }
 
     public void itemPickedUp(){
-        itemCount++;
+        keyCount++;
 
-        AQI -= AQI_decrease_on_item_pickup;
+        // AQI -= AQI_decrease_on_item_pickup;
     }
 }
