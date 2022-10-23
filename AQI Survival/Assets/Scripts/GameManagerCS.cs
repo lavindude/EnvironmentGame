@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 using System;
 
 public class GameManagerCS : MonoBehaviour
@@ -56,6 +57,10 @@ public class GameManagerCS : MonoBehaviour
         
         //update text displayed on the screen
         UpdateScreenText(AQI, health);
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("Lose");
+        }
     }
 
     private void UpdateScreenText(float _AQI, float _health) 
