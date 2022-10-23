@@ -21,6 +21,9 @@ public class GameManagerCS : MonoBehaviour
 
     public int keyCount = 0;
 
+    public bool hasGasMask = false;
+    public bool deactivated = false;
+
     // Start is called before the first frame update
     void Start()
     {       
@@ -75,5 +78,14 @@ public class GameManagerCS : MonoBehaviour
         keyCount++;
 
         // AQI -= AQI_decrease_on_item_pickup;
+    }
+
+    public void gasMaskPickUp(){
+        hasGasMask = true;
+    }
+
+    public void deactivate(){
+        deactivated = true;
+        //Game won????
     }
 }
