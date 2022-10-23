@@ -18,6 +18,7 @@ public class GameManagerCS : MonoBehaviour
     public float health;
     public float damage_constant;
     public float AQI_decrease_on_item_pickup;
+    public GameObject gasMask;
 
     public int keyCount = 0;
 
@@ -47,9 +48,9 @@ public class GameManagerCS : MonoBehaviour
         // makes it harder for player to move once AQI is 400+
         if (AQI > 400)
         {
-            player.GetComponent<PlayerControllCS>().walkingSpeed = 6;
-            player.GetComponent<PlayerControllCS>().runningSpeed = 6f;
-            player.GetComponent<PlayerControllCS>().jumpSpeed = 5;
+            player.GetComponent<PlayerControllCS>().walkingSpeed = 6.5f;
+            player.GetComponent<PlayerControllCS>().runningSpeed = 8f;
+            player.GetComponent<PlayerControllCS>().jumpSpeed = 6;
         }
 
         else // otherwise back to normal
@@ -64,6 +65,11 @@ public class GameManagerCS : MonoBehaviour
         if (health <= 0)
         {
             SceneManager.LoadScene("Lose");
+        }
+
+        if (hasGasMask)
+        {
+            gasMask.SetActive(true);
         }
     }
 
