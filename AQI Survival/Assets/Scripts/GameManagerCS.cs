@@ -17,7 +17,7 @@ public class GameManagerCS : MonoBehaviour
     public float damage_constant;
     public float AQI_decrease_on_item_pickup;
 
-    public int itemCount = 0;
+    public int keyCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -65,8 +65,8 @@ public class GameManagerCS : MonoBehaviour
     }
 
     public void itemPickedUp(){
-        itemCount++;
+        keyCount++;
 
-        AQI -= AQI_decrease_on_item_pickup;
+        // AQI -= AQI_decrease_on_item_pickup;
     }
 }
