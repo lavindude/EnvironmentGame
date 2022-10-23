@@ -18,6 +18,7 @@ public class GameManagerCS : MonoBehaviour
     public float health;
     public float damage_constant;
     public float AQI_decrease_on_item_pickup;
+    public GameObject gasMask;
 
     public int keyCount = 0;
 
@@ -64,6 +65,11 @@ public class GameManagerCS : MonoBehaviour
         if (health <= 0)
         {
             SceneManager.LoadScene("Lose");
+        }
+
+        if (hasGasMask)
+        {
+            gasMask.SetActive(true);
         }
     }
 
