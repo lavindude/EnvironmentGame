@@ -31960,6 +31960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AQI_text: {fileID: 447473693}
   health_text: {fileID: 643820670}
+  player: {fileID: 1519984458}
   AQI: 0
   AQI_increase_per_minute: 0
   health: 0
