@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManagerCS : MonoBehaviour
 {
     public TextMeshProUGUI AQI_text;
     public TextMeshProUGUI health_text;
-
     public float AQI;
     public float AQI_increase_per_minute;
     public float health;
@@ -38,6 +38,10 @@ public class GameManagerCS : MonoBehaviour
 
         //update text displayed on the screen
         UpdateScreenText(AQI, health);
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("Lose");
+        }
     }
 
     private void UpdateScreenText(float _AQI, float _health) 
