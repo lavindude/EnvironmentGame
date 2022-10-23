@@ -92,6 +92,6 @@ public class GameManagerCS : MonoBehaviour
 
     public void deactivate(){
         deactivated = true;
-        //Game won????
+        SceneManager.LoadScene("Win");
     }
 }
