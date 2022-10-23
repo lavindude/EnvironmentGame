@@ -14,6 +14,8 @@ public class PlayerControllCS: MonoBehaviour
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
 
+    public GameManagerCS gameManager;
+
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
@@ -33,6 +35,11 @@ public class PlayerControllCS: MonoBehaviour
     void Update()
     {
         Move();
+        if(97 < transform.position.x && transform.position.x < 115 && -2 > transform.position.z && transform.position.z > -13){
+            if(!gameManager.hasGasMask){
+                gameManager.health -= 700 * Time.deltaTime;
+            }
+        }
     }
 
     void Move(){
