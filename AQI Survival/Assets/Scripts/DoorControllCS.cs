@@ -19,8 +19,6 @@ public class DoorControllCS : MonoBehaviour
         Vector3 pos1 = player.transform.position;
         float scuffed_dist = Mathf.Abs(pos1.x - myPos.x) + Mathf.Abs(pos1.z - myPos.z) + Mathf.Abs(pos1.y - myPos.y);
 
-        Debug.Log(scuffed_dist);
-
         if(scuffed_dist < 28){
             // transform.Rotate(new Vector3(0, 1, 0));
             // TODO: to actual message:

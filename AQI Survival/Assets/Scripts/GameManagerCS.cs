@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 using System;
 
 public class GameManagerCS : MonoBehaviour
 {
     public TextMeshProUGUI AQI_text;
     public TextMeshProUGUI health_text;
+    public TextMeshProUGUI key_count_text;
 
     public GameObject player;
 
@@ -19,6 +21,9 @@ public class GameManagerCS : MonoBehaviour
 
     public int keyCount = 0;
 
+    public bool hasGasMask = false;
+    public bool deactivated = false;
+
     // Start is called before the first frame update
     void Start()
     {       
@@ -26,10 +31,10 @@ public class GameManagerCS : MonoBehaviour
         health = 1000;
 
         AQI_increase_per_minute = 200;
-        damage_constant = 1;
+        damage_constant = 0.7f;
 
         //text displayed on the screen
-        UpdateScreenText(AQI, health);
+        UpdateScreenText();
         AQI_decrease_on_item_pickup = 30;
     }
 
@@ -42,8 +47,8 @@ public class GameManagerCS : MonoBehaviour
         // makes it harder for player to move once AQI is 400+
         if (AQI > 400)
         {
-            player.GetComponent<PlayerControllCS>().walkingSpeed = 4;
-            player.GetComponent<PlayerControllCS>().runningSpeed = 4f;
+            player.GetComponent<PlayerControllCS>().walkingSpeed = 6;
+            player.GetComponent<PlayerControllCS>().runningSpeed = 6f;
             player.GetComponent<PlayerControllCS>().jumpSpeed = 5;
         }
 
@@ -55,18 +60,32 @@ public class GameManagerCS : MonoBehaviour
         }
         
         //update text displayed on the screen
-        UpdateScreenText(AQI, health);
+        UpdateScreenText();
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("Lose");
+        }
     }
 
-    private void UpdateScreenText(float _AQI, float _health) 
+    private void UpdateScreenText() 
     {
-        AQI_text.text = "AQI: " + Math.Round(_AQI);
-        health_text.text = "Health: " + Math.Round(_health);
+        AQI_text.text = "AQI: " + Math.Round(AQI);
+        health_text.text = "Health: " + Math.Round(health);
+        key_count_text.text = "Keys Collected: " + keyCount + "/3";
     }
 
     public void itemPickedUp(){
         keyCount++;
 
         // AQI -= AQI_decrease_on_item_pickup;
+    }
+
+    public void gasMaskPickUp(){
+        hasGasMask = true;
+    }
+
+    public void deactivate(){
+        deactivated = true;
+        //Game won????
     }
 }
