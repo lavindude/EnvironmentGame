@@ -84,6 +84,9 @@ public class PlayerControllCS: MonoBehaviour
     }
 
     void OnTriggerEnter(Collider col){
-        gameManager.deactivate();
+        if(col.gameObject.tag == "Tree")
+        {
+            gameManager.deactivate();
+        }
     }
 }
