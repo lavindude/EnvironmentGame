@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class GameManagerCS : MonoBehaviour
 {
@@ -42,9 +43,8 @@ public class GameManagerCS : MonoBehaviour
 
     private void UpdateScreenText(float _AQI, float _health) 
     {
-        AQI_text.text = "AQI: " + _AQI;
-        health_text.text = "Health: " + _health;
-        // Debug.Log(AQI);
+        AQI_text.text = "AQI: " + Math.Round(_AQI);
+        health_text.text = "Health: " + Math.Round(_health);
     }
 
     public void itemPickedUp(){

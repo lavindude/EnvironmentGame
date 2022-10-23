@@ -16117,7 +16117,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 64, y: 8}
+  m_AnchoredPosition: {x: 73, y: 8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &643820670
@@ -26097,7 +26097,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1073338879
 PrefabInstance:
@@ -26861,7 +26861,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1109551098
 PrefabInstance:
@@ -31794,7 +31794,7 @@ RectTransform:
   - {fileID: 447473692}
   - {fileID: 643820669}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -31964,6 +31964,7 @@ MonoBehaviour:
   AQI_increase_per_minute: 0
   health: 0
   damage_constant: 0
+  AQI_decrease_on_item_pickup: 0
   itemCount: 0
 --- !u!4 &1330271590
 Transform:
